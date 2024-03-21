@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         {
             if (itemBoxes[i].isOveraped == true)
             {
+                Debug.Log($"{count + 1}");
                 count++;
             }
         }

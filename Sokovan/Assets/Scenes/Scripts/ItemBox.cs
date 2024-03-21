@@ -36,8 +36,8 @@ public class ItemBox : MonoBehaviour
         //충돌한 오브젝트의 레이어의 이름이 EndPoint일 때
         if (other.gameObject.layer == LayerMask.NameToLayer("EndPoint"))
         {
-            
-            Renderer.material.color = Color.red;
+            isOveraped = true;
+            Renderer.material.color = touchColor;
             Debug.Log("아이템 박스에 도달");
         }
     }
@@ -47,6 +47,7 @@ public class ItemBox : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("EndPoint"))
         {
+            isOveraped = false;
             Renderer.material.color = originalColor;
             Debug.Log("아이템 박스에서 벗어남");
         }
@@ -57,6 +58,7 @@ public class ItemBox : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("EndPoint"))
         {
+            isOveraped = true;
             Renderer.material.color = touchColor;
         }
     }
