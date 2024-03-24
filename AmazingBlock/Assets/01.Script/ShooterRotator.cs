@@ -16,7 +16,7 @@ public class ShooterRotator : MonoBehaviour
 
     private RotateState state = RotateState.Idle; // 초기 상태는 Idle
     [SerializeField]
-    private float verticalRotateSpeed = 360.0f; // 수직 회전 속도
+    private float verticalRotateSpeed   = 360.0f; // 수직 회전 속도
     [SerializeField]
     private float horizontalRotateSpeed = 360.0f; // 수평 회전 속도
 
