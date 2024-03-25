@@ -56,10 +56,10 @@ public class Ball : MonoBehaviour
     {
         Vector3 explosionToTarget = targetPosition - transform.position;
 
-        float distance = explosionToTarget.magnitude;
-        float edgeToCenterDistance = explosionRadius - distance;
-        float percentage = edgeToCenterDistance / explosionRadius;
-        float damage = maxDamage * percentage;
+        float distance              = explosionToTarget.magnitude;
+        float edgeToCenterDistance  = explosionRadius - distance;
+        float percentage            = edgeToCenterDistance / explosionRadius;
+        float damage                = maxDamage * percentage;
         damage = Mathf.Max(0, damage);
 
         return damage;

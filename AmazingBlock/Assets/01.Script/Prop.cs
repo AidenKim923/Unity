@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Prop : MonoBehaviour
 {
-    public int score = 5;
-    public ParticleSystem explosionParticle;
+    public int score    = 5;
     public float hp = 10f;
+    public ParticleSystem explosionParticle;
 
     public void TakeDamage(float damage)
     {
         hp -= damage;
+
         if (hp <= 0)
         {
             // 파티클 시스템 동적으로 생성
