@@ -23,7 +23,7 @@ public class BarrelCtrl : MonoBehaviour
         {
             if (++hitCount == 3)
             {
-                ExpBarrel();
+                ExpBarrel();    
             }
         }
     }
@@ -31,7 +31,7 @@ public class BarrelCtrl : MonoBehaviour
     private void ExpBarrel()
     {
         GameObject effect = Instantiate(expEffect, tr.position, Quaternion.identity);
-        Destroy(effect, 5.0f);
+        Destroy(effect, 1.0f);
 
         rb.mass = 1.0f;
         rb.AddForce(Vector3.up * 1500.0f);
