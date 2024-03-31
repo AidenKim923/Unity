@@ -11,11 +11,10 @@ public class PlayerCtrl : MonoBehaviour
 
     // 이동 속력 변수 (public으로 선언되어 인스펙터 뷰에 노출됨)
     public float moveSpeed = 10.0f;
-
     // 회전 속도 변수
     public float turnSpeed = 80.0f;
 
-    void Start()
+    IEnumerator Start()
     {
         // 컴포넌트를 추출해 변수에 대입
         tr = GetComponent<Transform>();
@@ -23,6 +22,10 @@ public class PlayerCtrl : MonoBehaviour
 
         // 애니메이션 실행
         anim.Play("Idle");
+
+        turnSpeed = 0.0f;
+        yield return new WaitForSeconds(0.3f);
+        turnSpeed = 80.0f;
     }
 
     void Update()
@@ -71,7 +74,4 @@ public class PlayerCtrl : MonoBehaviour
             anim.CrossFade("Idle", 0.25f);   // 정지 시 Idle 애니메이션 실행
         }
     }
-
-
-
 }
