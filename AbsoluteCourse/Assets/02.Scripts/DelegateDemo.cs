@@ -24,15 +24,5 @@ public class DelegateDemo : MonoBehaviour
 
         // 결괏값 출력
         Debug.Log($"Sum = {sum}");
-
-        // 델리게이트 변수에 람다식 선언
-        sumHandler = (float a, float b) => (a + b);
-        float sum2 = sumHandler(20.0f, 7.0f);
-        Debug.Log($"Sum2 = {sum2}");
-
-        // 델리게이트 변수에 익명 메서드 선언
-        sumHandler = delegate (float a, float b) { return a + b; };
-        float sum3 = sumHandler(30.0f, 9.0f);
-        Debug.Log($"Sum3 = {sum3}");
     }
 }
