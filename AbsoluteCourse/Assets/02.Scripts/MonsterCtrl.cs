@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // 내비게이션 기능을 사용하기 위해 추가해야 하는 네임스페이스
@@ -75,12 +76,23 @@ public class MonsterCtrl : MonoBehaviour
 
         // NavMeshAgent 컴포넌트 할당
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
 
         // Animator 컴포넌트 할당
         anim = GetComponent<Animator>();
 
         // BloodSprayEffect 프리팹 로드
         bloodEffect = Resources.Load<GameObject>("BloodSprayEffect");
+    }
+
+    private void Update()
+    {
+        if (agent.remainingDistance >= 2.0f)
+        {
+            Vector3 direction = agent.desiredVelocity;
+            Quaternion rot = Quaternion.LookRotation(direction);
+            monsterTr.rotation = Quaternion.Slerp(monsterTr.rotation, rot, Time.deltaTime * 10.0f);
+        }
     }
 
     // 일정한 간격으로 몬스터의 행동 상태를 체크
